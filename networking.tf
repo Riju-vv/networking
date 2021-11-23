@@ -1,5 +1,5 @@
 resource "aws_vpc" "main-vpc" {
-cidr_block = "10.100.0.0/16"
+cidr_block = var.vpc_cidr_block
 enable_dns_hostnames = "true"
 tags = {
 Name = "student.09-vpc"
@@ -11,14 +11,14 @@ vpc_id = aws_vpc.main-vpc.id
 cidr_block = var.subnet-1_cidr_block
 map_public_ip_on_launch = "true"
 tags = {
-Name = "student.09-subnet-1"
+Name = var.subnet-1_name
 }
 }
 
 resource "aws_internet_gateway" "igw" {
 vpc_id = aws_vpc.main-vpc.id
 tags = {
-Name = "student.09-igw"
+Name = var.igw_name
 }
 }
 
@@ -30,7 +30,7 @@ cidr_block = "0.0.0.0/0"
 gateway_id = aws_internet_gateway.igw.id
 }
 tags = {
-Name = "student.09-route-table"
+Name = var.route_table_name
 }
 }
 
