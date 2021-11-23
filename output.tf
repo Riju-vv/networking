@@ -17,3 +17,7 @@ value = aws_route_table.my-route-table.id
 output "my_rta" {
 value = aws_route_table_association.my-route-association.id
 }
+
+output "my_keyname" {
+value = aws_key_pair.vm_ssh_key.key_name
+}
