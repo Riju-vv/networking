@@ -8,7 +8,7 @@ Name = "student.09-vpc"
 
 resource "aws_subnet" "subnet-1" {
 vpc_id = aws_vpc.main-vpc.id
-cidr_block = "10.100.0.0/24"
+cidr_block = var.subnet-1_cidr_block
 map_public_ip_on_launch = "true"
 tags = {
 Name = "student.09-subnet-1"
